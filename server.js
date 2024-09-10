@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { logger } = require("./middleware/logEvent");
+const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 3500;
 
@@ -15,6 +16,7 @@ app.use(logger);
 app.use("/", express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", require("./routes/root"));
+
 
 // Page not found
 app.all("*", function(request, response) {
@@ -30,6 +32,9 @@ app.all("*", function(request, response) {
         response.send("404 Not Found");
     }
 });
+
+
+app.use(errorHandler);
 
 
 app.listen(PORT, function() {
