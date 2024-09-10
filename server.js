@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const { logger } = require("./middleware/logger");
 
 const PORT = process.env.PORT || 3500;
 
@@ -8,7 +9,8 @@ const PORT = process.env.PORT || 3500;
 /**
  * Middleware
  */
-
+// Logger
+app.use(logger);
 // Static files
 app.use("/", express.static(path.join(__dirname, "public")));
 // Routes
