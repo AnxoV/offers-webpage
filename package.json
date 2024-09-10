@@ -1,0 +1,19 @@
+{
+  "name": "offers-webpage",
+  "version": "1.0.0",
+  "description": "Webserver for managing job offers between companies and students.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnxoV/offers-webpage.git"
+  },
+  "author": "AnxoV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnxoV/offers-webpage/issues"
+  },
+  "homepage": "https://github.com/AnxoV/offers-webpage#readme"
+}
