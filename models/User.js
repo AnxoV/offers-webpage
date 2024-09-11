@@ -7,10 +7,8 @@ const userSchema = new Schema({
         required: true
     },
     roles: {
-        Student: Number,
-        Company: Number,
-        Supervisor: Number,
-        Admin: Number
+        type: Number,
+        required: true
     },
     state: {
         type: Number,
