@@ -1,5 +1,6 @@
 const User = require("../models/User");
 
+
 const getAllUsers = async function(request, response) {
     const users = await User.find();
 
@@ -105,12 +106,6 @@ const getUser = async function(request, response) {
     response.json(user);
 }
 
-/**
- * To-Do:
- * - updateUser
- * - deleteUser
- * - getUser
- */
 
 module.exports = {
     getAllUsers,
