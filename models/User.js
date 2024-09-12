@@ -12,7 +12,9 @@ const UserSchema = new mongoose.Schema({
     state: {
         type: Number,
         default: 300
-    }
+    },
+    refreshToken: String,
+    loginCode: String
 });
 
 const extend = function(schema, obj) {
