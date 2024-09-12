@@ -35,6 +35,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", require("./routes/root"));
 app.use("/register", require("./routes/register"));
+app.use("/request", require("./routes/request"));
 app.use("/auth", require("./routes/auth"));
 app.use("/logout", require("./routes/logout"));
 // Api
