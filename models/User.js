@@ -1,20 +1,74 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
     },
-    roles: {
+    role: {
         type: Number,
         required: true
     },
     state: {
         type: Number,
         default: 300
-    },
-    refreshToken: String
+    }
 });
 
-module.exports = mongoose.model("User", userSchema);
+const extend = function(schema, obj) {
+    return new mongoose.Schema(Object.assign({}, schema.obj, obj));
+}
+
+const StudentSchema = extend(UserSchema, {
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    }
+});
+
+const CompanySchema = extend(UserSchema, {
+    name: {
+        type: String,
+        required: true
+    }
+});
+
+const SupervisorSchema = extend(UserSchema, {
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    }
+});
+
+const AdminSchema = extend(UserSchema, {
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    }
+});
+
+const User = mongoose.model("User", UserSchema, "users");
+const Student = mongoose.model("Student", StudentSchema, "users");
+const Company = mongoose.model("Company", CompanySchema, "users");
+const Supervisor = mongoose.model("Supervisor", SupervisorSchema, "users");
+const Admin = mongoose.model("Admin", AdminSchema, "users");
+
+module.exports = {
+    User,
+    Student,
+    Company,
+    Supervisor,
+    Admin
+}
