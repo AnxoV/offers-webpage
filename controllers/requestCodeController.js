@@ -1,8 +1,9 @@
 const {User} = require("../models/User");
 const { v4: uuid } = require("uuid");
+const {sanitizeInput} = require("../utils/validation");
 
 const handleRequestCode = async function(request, response) {
-    const {email} = request.body;
+    const email = sanitizeInput(request.body.email);
     
     if (!email) {
         return response.status(400).json({

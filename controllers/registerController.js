@@ -1,8 +1,9 @@
 const { User, Student, Company, Supervisor, Admin } = require("../models/User");
 const Role = require("../models/Role");
+const {sanitizeInput, sanitizeObject} = require("../utils/validation");
 
 const handleNewStudent = async function(request, response) {
-    const {email, name, surname} = request.body;
+    const {email, name, surname} = sanitizeObject(request.body);
     
     const requiredFields = ["email", "name", "surname"];
 
@@ -49,7 +50,7 @@ const handleNewStudent = async function(request, response) {
 }
 
 const handleNewCompany = async function(request, response) {
-    const {email, name} = request.body;
+    const {email, name} = sanitizeObject(request.body);
     
     const requiredFields = ["email", "name"];
 
@@ -95,7 +96,7 @@ const handleNewCompany = async function(request, response) {
 }
 
 const handleNewSupervisor = async function(request, response) {
-    const {email, name, surname} = request.body;
+    const {email, name, surname} = sanitizeObject(request.body);
     
     const requiredFields = ["email", "name", "surname"];
 
@@ -142,7 +143,7 @@ const handleNewSupervisor = async function(request, response) {
 }
 
 const handleNewAdmin = async function(request, response) {
-    const {email, name, surname} = request.body;
+    const {email, name, surname} = sanitizeObject(request.body);
     
     const requiredFields = ["email", "name", "surname"];
 

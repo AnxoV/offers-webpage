@@ -1,9 +1,10 @@
 const {User} = require("../models/User");
 const jwt = require("jsonwebtoken");
+const {sanitizeInput} = require("../utils/validation");
 
 const handleLogin = async function(request, response) {
     const {loginCode} = request.params;
-    const {email} = request.query;
+    const email = sanitizeInput(request.query.email);
     console.log(loginCode, email    );
     if (!email || !loginCode) {
         return response.status(400).json({
@@ -11,7 +12,8 @@ const handleLogin = async function(request, response) {
         });
     }
 
-    const foundUser = await User.findOne({ email }).exec();
+    const foundUser = await User.findOne({email
+}).exec();
     if (
         !foundUser
         || foundUser.loginCode !== loginCode

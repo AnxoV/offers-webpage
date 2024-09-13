@@ -1,4 +1,5 @@
 const {User} = require("../models/User");
+const {sanitizeInput} = require("../utils/validation");
 
 const handleLogout = async function(request, response) {
     const cookies = request.cookies;
@@ -6,7 +7,7 @@ const handleLogout = async function(request, response) {
         return response.sendStatus(204);
     }
 
-    const refreshToken = cookies.jwt;
+    const refreshToken = sanitizeInput(cookies.jwt);
 
     const foundUser = await User.findOne({ refreshToken }).exec();
     if (foundUser) {
