@@ -2,7 +2,9 @@ const {User} = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 const handleLogin = async function(request, response) {
-    const {email, loginCode} = request.body;
+    const {loginCode} = request.params;
+    const {email} = request.query;
+    console.log(loginCode, email    );
     if (!email || !loginCode) {
         return response.status(400).json({
             "message": "Missing required values"
