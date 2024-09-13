@@ -2,7 +2,15 @@ const {User} = require("../models/User");
 
 
 const getAllUsers = async function(request, response) {
-    const users = await User.find();
+    const availableFilters = ["name", "surname", "role", "state"];
+    const filteredKeys = {};
+    for (const [key, value] of Object.entries(request.query)) {
+        if (availableFilters.includes(key)) {
+            filteredKeys[key] = value;
+        }
+    }
+
+    const users = await User.find(filteredKeys);
 
     if (!users) {
         return response.status(204).json({
@@ -11,31 +19,6 @@ const getAllUsers = async function(request, response) {
     }
 
     response.json(users);
-}
-
-const createNewUser = async function(request, response) {
-    if (!request?.body?.email) {
-        return response.status(400).json({
-            "message": "Email is required"
-        });
-    }
-
-    const foundUser = await User.find({ email: request.body.email }).exec();
-
-    if (foundUser) {
-        return response.sendStatus(409);
-    }
-
-    try {
-        const result = await User.create({
-            email: request.body.email
-        });
-
-        response.status(201);
-        response.json(result);
-    } catch(error) {
-        console.error(error);
-    }
 }
 
 const updateUser = async function(request, response) {
@@ -88,29 +71,9 @@ const deleteUser = async function(request, response) {
     response.json(result);
 }
 
-const getUser = async function(request, response) {
-    if (!request?.params?.id) {
-        return response.status(400).json({
-            "message": "ID parameter is required"
-        });
-    }
-
-    const user = await User.findOne({ _id: request.params.id }).exec();
-
-    if (!user) {
-        return response.status(204).json({
-            "message": `No user matches ID ${request.params.id}`
-        });
-    }
-
-    response.json(user);
-}
-
 
 module.exports = {
     getAllUsers,
-    createNewUser,
     updateUser,
-    deleteUser,
-    getUser
+    deleteUser
 }
