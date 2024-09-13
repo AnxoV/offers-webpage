@@ -37,7 +37,7 @@ const handleLogin = async function(request, response) {
     );
 
     foundUser.refreshToken = refreshToken;
-    foundUser.loginCode = "";
+    //foundUser.loginCode = ""; Commented for testing
     const result = await foundUser.save();
     console.log(result);
 

@@ -13,6 +13,8 @@ const connectDB = require("./config/dbConnection");
 
 const cookieParser = require("cookie-parser");
 
+const verifyJWT = require("./middleware/verifyJWT");
+
 const PORT = process.env.PORT || 3500;
 
 
@@ -38,6 +40,8 @@ app.use("/register", require("./routes/register"));
 app.use("/request", require("./routes/request"));
 app.use("/auth", require("./routes/auth"));
 app.use("/logout", require("./routes/logout"));
+
+app.use(verifyJWT);
 // Api
 app.use("/users", require("./routes/api/users"));
 
