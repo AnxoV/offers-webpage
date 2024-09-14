@@ -3,9 +3,9 @@ const Role = require("../models/Role");
 const {sanitizeInput, sanitizeObject} = require("../utils/validation");
 
 const handleNewStudent = async function(request, response) {
-    const {email, name, surname} = sanitizeObject(request.body);
+    const {email, name, surname, password} = sanitizeObject(request.body);
     
-    const requiredFields = ["email", "name", "surname"];
+    const requiredFields = ["email", "name", "surname", "password"];
 
     requiredFields.forEach(function(field) {
         if (!request.body[field]) {
@@ -32,6 +32,7 @@ const handleNewStudent = async function(request, response) {
             "email": email,
             "name": name,
             "surname": surname,
+            "password": password,
             "role": role.id
         });
 
@@ -96,9 +97,9 @@ const handleNewCompany = async function(request, response) {
 }
 
 const handleNewSupervisor = async function(request, response) {
-    const {email, name, surname} = sanitizeObject(request.body);
+    const {email, name, surname, password} = sanitizeObject(request.body);
     
-    const requiredFields = ["email", "name", "surname"];
+    const requiredFields = ["email", "name", "surname", "password"];
 
     requiredFields.forEach(function(field) {
         if (!request.body[field]) {
@@ -125,6 +126,7 @@ const handleNewSupervisor = async function(request, response) {
             "email": email,
             "name": name,
             "surname": surname,
+            "password": password,
             "role": role.id
         });
 
@@ -143,9 +145,9 @@ const handleNewSupervisor = async function(request, response) {
 }
 
 const handleNewAdmin = async function(request, response) {
-    const {email, name, surname} = sanitizeObject(request.body);
+    const {email, name, surname, password} = sanitizeObject(request.body);
     
-    const requiredFields = ["email", "name", "surname"];
+    const requiredFields = ["email", "name", "surname", "password"];
 
     requiredFields.forEach(function(field) {
         if (!request.body[field]) {
@@ -172,6 +174,7 @@ const handleNewAdmin = async function(request, response) {
             "email": email,
             "name": name,
             "surname": surname,
+            "password": password,
             "role": role.id
         });
 

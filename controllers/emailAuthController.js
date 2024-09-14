@@ -1,21 +1,26 @@
 const {User} = require("../models/User");
 const jwt = require("jsonwebtoken");
-const {sanitizeObject} = require("../utils/validation");
+const {sanitizeInput} = require("../utils/validation");
 
 const handleLogin = async function(request, response) {
-    const {email, password} = sanitizeObject(request.body);
-    if (!email || !password) {
+    const {loginCode} = request.params;
+    const email = sanitizeInput(request.query.email);
+    console.log(loginCode, email    );
+    if (!email || !loginCode) {
         return response.status(400).json({
             "message": "Missing required values"
         });
     }
 
     const foundUser = await User.findOne({email}).exec();
-    if (!foundUser) {
+    if (
+        !foundUser
+        || foundUser.loginCode !== loginCode
+    ) {
         return response.sendStatus(409);
     }
 
-    console.log(email, password);
+    console.log(email, loginCode);
 
     const accessToken = jwt.sign(
         {
@@ -33,6 +38,7 @@ const handleLogin = async function(request, response) {
     );
 
     foundUser.refreshToken = refreshToken;
+    //foundUser.loginCode = ""; Commented for testing
     const result = await foundUser.save();
     console.log(result);
 

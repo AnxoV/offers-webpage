@@ -29,6 +29,10 @@ const StudentSchema = extend(UserSchema, {
     surname: {
         type: String,
         required: true
+    },
+    password: {
+        type: String,
+        required: true
     }
 });
 
@@ -47,6 +51,10 @@ const SupervisorSchema = extend(UserSchema, {
     surname: {
         type: String,
         required: true
+    },
+    password: {
+        type: String,
+        required: true
     }
 });
 
@@ -56,6 +64,10 @@ const AdminSchema = extend(UserSchema, {
         required: true
     },
     surname: {
+        type: String,
+        required: true
+    },
+    password: {
         type: String,
         required: true
     }
