@@ -1,0 +1,1 @@
+createCookie("jwt", "", -1);

@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
+const page = require("../utils/page");
 
-router.get("/student(.html)?", function(request, response) {
-    response.sendFile(path.join(__dirname, "..", "views", "login", "student.html"));
-});
+const sessionHandler = require("../middleware/sessionHandler");
 
-router.get("/company(.html)?", function(request, response) {
-    response.sendFile(path.join(__dirname, "..", "views", "login", "company.html"));
-});
+router.get("/student(.html)?",
+    sessionHandler.activeSessionRedirect,
+    page.load("login", "student.html")
+);
+router.get("/company(.html)?",
+    sessionHandler.activeSessionRedirect,
+    page.load("login", "company.html")
+);
 
 module.exports = router;

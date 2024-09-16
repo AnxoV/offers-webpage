@@ -43,19 +43,21 @@ app.use(express.json());
 // Cookies
 app.use(cookieParser());
 // Static files
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", require("./routes/root"));
 app.use("/register", require("./routes/register"));
 app.use("/login", require("./routes/login"));
-app.use("/request", require("./routes/request"));
-app.use("/auth", require("./routes/auth"));
-app.use("/emailauth", require("./routes/emailauth"));
-app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
+app.use("/offers", require("./routes/offers"));
+
+app.use("/request", require("./routes/api/request"));
+app.use("/auth", require("./routes/api/auth"));
+app.use("/emailauth", require("./routes/api/emailauth"));
+app.use("/refresh", require("./routes/api/refresh"));
 
 app.use(verifyJWT);
-app.use("/offers", require("./routes/offers"));
+app.use("/offers", require("./routes/api/offers"));
 
 // Page not found
 app.all("*", function(request, response) {

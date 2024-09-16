@@ -1,9 +1,10 @@
-const {User, Student} = require("../models/User");
+const {User} = require("../models/User");
 const jwt = require("jsonwebtoken");
 const {sanitizeObject} = require("../utils/validation");
 
-const handlePasswordLogin = async function(request, response) {
+const handleLogin = async function(request, response) {
     const {email, password} = sanitizeObject(request.body);
+    console.log(request.body);
     if (!email || !password) {
         return response.status(400).json({
             "message": "Missing required values"
@@ -56,4 +57,4 @@ const handlePasswordLogin = async function(request, response) {
     response.json({ accessToken });
 }
 
-module.exports = { handlePasswordLogin };
+module.exports = { handleLogin };

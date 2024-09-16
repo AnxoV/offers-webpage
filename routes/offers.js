@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
+const page = require("../utils/page");
 
-router.get("/", function(request, response) {
-    response.sendFile(path.join(__dirname, "..", "views", "offers.html"));
-});
+const sessionHandler = require("../middleware/sessionHandler");
+
+router.get("/",
+    sessionHandler.inactiveSessionRedirect,
+    page.load("offers.html")
+);
 
 module.exports = router;
