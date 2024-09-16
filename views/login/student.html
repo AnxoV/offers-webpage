@@ -8,7 +8,24 @@
 </head>
 <body>
     <main>
-        Estudiante
+        <h1>Estudiante</h1>
+        <form action="/auth" method="post" id="login-student-form">
+            <div>
+                <label for="email">
+                    Email:
+                    <input type="email" name="email">
+                </label>
+            </div>
+            <div>
+                <label for="password">
+                    Contraseña:
+                    <input type="password" name="password">
+                </label>
+            </div>
+            <div>
+                <input type="submit" value="Iniciar sesión">
+            </div>
+        </form>
     </main>
 </body>
 </html>

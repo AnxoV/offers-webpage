@@ -1,8 +1,8 @@
-const {User} = require("../models/User");
+const {User, Student} = require("../models/User");
 const jwt = require("jsonwebtoken");
 const {sanitizeObject} = require("../utils/validation");
 
-const handleLogin = async function(request, response) {
+const handlePasswordLogin = async function(request, response) {
     const {email, password} = sanitizeObject(request.body);
     if (!email || !password) {
         return response.status(400).json({
@@ -10,12 +10,20 @@ const handleLogin = async function(request, response) {
         });
     }
 
-    const foundUser = await User.findOne({email}).exec();
+    const foundUser = await User.findOne(
+        {email},
+        {email: true, password: true}
+    ).exec();
     if (!foundUser) {
         return response.sendStatus(409);
     }
 
-    console.log(email, password);
+    const objectUser = foundUser.toObject();
+    
+    const match = password ===  objectUser.password;
+    if (!match) {
+        return response.sendStatus(401);
+    }
 
     const accessToken = jwt.sign(
         {
@@ -34,7 +42,6 @@ const handleLogin = async function(request, response) {
 
     foundUser.refreshToken = refreshToken;
     const result = await foundUser.save();
-    console.log(result);
 
     response.cookie(
         "jwt",
@@ -49,4 +56,4 @@ const handleLogin = async function(request, response) {
     response.json({ accessToken });
 }
 
-module.exports = { handleLogin };
+module.exports = { handlePasswordLogin };

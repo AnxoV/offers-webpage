@@ -14,8 +14,19 @@ const sanitizeObject = function(object) {
     return object;
 };
 
+const checkRequiredFields = function(fields, object) {
+    fields.forEach(function(field) {
+        if (!object[field]) {
+            return false;
+        }
+    });
+
+    return true;
+}
+
 module.exports = {
     validInput,
     sanitizeInput,
-    sanitizeObject
+    sanitizeObject,
+    checkRequiredFields
 }
