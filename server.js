@@ -51,6 +51,7 @@ app.use("/login", require("./routes/login"));
 app.use("/request", require("./routes/request"));
 app.use("/auth", require("./routes/auth"));
 app.use("/emailauth", require("./routes/emailauth"));
+app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 
 app.use(verifyJWT);
