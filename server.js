@@ -55,9 +55,7 @@ app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 
 app.use(verifyJWT);
-// Api
-app.use("/users", require("./routes/api/users"));
-
+app.use("/offers", require("./routes/offers"));
 
 // Page not found
 app.all("*", function(request, response) {
