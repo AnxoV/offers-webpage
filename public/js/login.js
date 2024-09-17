@@ -1,6 +1,6 @@
 import { $ } from "./utils.js"
 
-const formElement = $("#logins-form");
+const formElement = $("#login-form");
 formElement.addEventListener("submit", async function(event) {
     event.preventDefault();
     
@@ -15,6 +15,7 @@ formElement.addEventListener("submit", async function(event) {
     });
 
     if (response.ok) {
-        console.log("Logged in!");
+        const url = `${window.location.origin}/offers`;
+        window.location.replace(url);
     }
 });

@@ -1,0 +1,7 @@
+#user-selection {
+    display: flex;
+    flex-direction: row;
+}
+#user-selection > * {
+    margin: 5px;
+}

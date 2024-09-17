@@ -2,6 +2,7 @@ const {User} = require("../models/User");
 const {sanitizeInput} = require("../utils/validation");
 
 const handleLogout = async function(request, response) {
+    console.log("[*] logoutController.handleLogout: logging out user");
     const cookies = request.cookies;
     if (!cookies?.jwt) {
         return response.sendStatus(204);

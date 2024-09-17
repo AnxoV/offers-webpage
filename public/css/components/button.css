@@ -1,0 +1,23 @@
+@import "../colors.css";
+
+.button {
+    padding: 5px 10px;
+
+    color: var(--button-color-default);
+    background-color: var(--button-background-color-default);
+
+    border: var(--button-border-width) solid var(--button-border-color-default);
+    border-radius: var(--button-border-radius);
+}
+a.button {
+    text-decoration: none;
+}
+
+.button:hover {
+    filter: brightness(.8);
+}
+
+.button.button-warning {
+    color: var(--button-color-warning);
+    background-color: var(--button-background-color-warning);
+}

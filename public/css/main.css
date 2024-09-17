@@ -1,3 +1,9 @@
-h1 {
-    color: blue;
+@import "fonts.css";
+
+header {
+    padding: 10px;
+}
+
+main {
+    padding: 10px;
 }

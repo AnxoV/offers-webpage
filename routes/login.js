@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const page = require("../utils/page");
 
+const page = require("../utils/page");
 const sessionHandler = require("../middleware/sessionHandler");
+
+router.get("^/$|/index(.html)?", page.load("index.html"));
 
 router.get("/student(.html)?",
     sessionHandler.activeSessionRedirect,
