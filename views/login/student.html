@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
     <title>Ofertas web</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components/form.css">
 </head>
 <body>
     <main>
         <h1>Estudiante</h1>
-        <form action="/auth" method="post" id="login-form">
+        <form action="/auth" method="post" class="form" id="login-form">
             <div>
                 <label for="email">
                     Email:
@@ -23,10 +25,10 @@
                 </label>
             </div>
             <div>
-                <input type="submit" value="Iniciar sesión">
+                <input type="submit" value="Iniciar sesión" class="button">
             </div>
         </form>
-        <small><a href="/register/student">Registrarse</a></small>
+        <small><a href="/register/student" class="link">Registrarse</a></small>
     </main>
     <script type="module" src="/js/login.js"></script>
 </body>

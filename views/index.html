@@ -3,17 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas web</title>
+
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/views/index.css">
-    <link rel="stylesheet" href="/css/components/button.css">
-    <title>Ofertas web</title>
 </head>
 <body>
+    <!--
+        Change login-form action based on selected user
+    -->
     <main>
-        <div id="user-selection">
-            <a href="/login/student" class="button">Estudiante</a>
-            <a href="/login/company" class="button">Empresa</a>
+        <div id="login-container">
+            <div id="user-selection-container">
+                <button class="button selection-button" id="user-selection-button">
+                    <img src="/media/svg/user.svg" alt="user" class="icon selection-icon">
+                </button>
+                <button class="button button-hollow selection-button" id="company-selection-button">
+                    <img src="/media/svg/company.svg" alt="user" class="icon selection-icon" id="company-icon">
+                </button>
+            </div>
+            <form action="" method="post" class="form" id="login-form">
+                <div>
+                    <label for="email">
+                        <h4>Correo electrónico</h4>
+                        <input type="email" name="email" class="input">
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <h4>Contraseña</h4>
+                        <input type="password" name="password" class="input">
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="button">Inciar sesión</button>
+                </div>
+            </form>
         </div>
     </main>
+    <script type="module" src="/js/index.js"></script>
 </body>
 </html>

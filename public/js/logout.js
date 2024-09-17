@@ -1,1 +1,0 @@
-createCookie("jwt", "", -1);

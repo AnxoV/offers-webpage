@@ -9,7 +9,6 @@ formElement.addEventListener("submit", async function(event) {
     const url = formElement.action;
 
     const response = await fetch(url, {
-
         method: "POST",
         body: new URLSearchParams(formData)
     });

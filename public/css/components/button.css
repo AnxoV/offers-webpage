@@ -1,23 +1,41 @@
-@import "../colors.css";
-
 .button {
     padding: 5px 10px;
 
-    color: var(--button-color-default);
-    background-color: var(--button-background-color-default);
+    color: #fff;
+    background-color: #044f9b;
 
-    border: var(--button-border-width) solid var(--button-border-color-default);
-    border-radius: var(--button-border-radius);
+    border: 2px solid;
+    border-color: #044f9b;
+    border-radius: 8px;
 }
+
 a.button {
     text-decoration: none;
 }
 
 .button:hover {
+    cursor: pointer;
     filter: brightness(.8);
 }
 
 .button.button-warning {
-    color: var(--button-color-warning);
-    background-color: var(--button-background-color-warning);
+    color: inherit;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.button.button-hollow {
+    background-color: transparent;
+}
+
+.button.button-hollow:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.link {
+    color: #0c73d9;
+    text-decoration: none;
+}
+.link:active {
+    color: inherit;
 }

@@ -4,8 +4,9 @@ const {sanitizeObject} = require("../utils/validation");
 
 const handleLogin = async function(request, response) {
     const {email, password} = sanitizeObject(request.body);
-    console.log(request.body);
+    console.log(`[*] authController.handleLogin: authenticating user ${email}`);
     if (!email || !password) {
+        console.log("[^] authController.handleLogin: missing required values");
         return response.status(400).json({
             "message": "Missing required values"
         });
@@ -16,13 +17,17 @@ const handleLogin = async function(request, response) {
         {email: true, password: true}
     ).exec();
     if (!foundUser) {
+        console.log("[^] authController.handleLogin: user not found");
         return response.sendStatus(409);
     }
+
+    console.log(`[^] authController.handleLogin: found user ${foundUser.email}`);
 
     const objectUser = foundUser.toObject();
     
     const match = password ===  objectUser.password;
     if (!match) {
+        console.log("[^] authController.handleLogin: passwords doesn't match");
         return response.sendStatus(401);
     }
 
@@ -35,11 +40,16 @@ const handleLogin = async function(request, response) {
         { expiresIn: "300s" }
     );
 
+    console.log("[^] authController.handleLogin: generated accessToken");
+
     const refreshToken = jwt.sign(
         { "email": foundUser.email },
         process.env.REFRESH_TOKEN_SECRET,
         { expiresIn: "1d" }
     );
+
+    console.log("[^] authController.handleLogin: generated refreshToken");
+
 
     foundUser.refreshToken = refreshToken;
     const result = await foundUser.save();
@@ -53,6 +63,8 @@ const handleLogin = async function(request, response) {
             maxAge: 24*60*60*1000
         }
     );
+
+    console.log("[^] authController.handleLogin: jwt cookie set");
 
     response.json({ accessToken });
 }
