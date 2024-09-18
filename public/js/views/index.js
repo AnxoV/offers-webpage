@@ -20,7 +20,7 @@ const login_form = $("#login-form");
 const user_selection_button = $("#user-selection-button");
 user_selection_button.addEventListener("click", function(event) {
     password_label.classList.remove("hidden");
-    password_input.setAttribute("required", true);
+    password_input.setAttribute("required");
     login_form.action = "/auth"
 });
 
@@ -28,7 +28,7 @@ const company_selection_button = $("#company-selection-button");
 
 company_selection_button.addEventListener("click", function(event) {
     password_label.classList.add("hidden");
-    password_input.setAttribute("required", false);
+    password_input.removeAttribute("required");
     login_form.action = "/emailauth"
 });
 

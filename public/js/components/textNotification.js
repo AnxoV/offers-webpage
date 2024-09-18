@@ -23,7 +23,7 @@ export default class TextNotification extends HTMLElement {
 
         setTimeout(() => {
             this.remove();
-        }, 500000000);
+        }, 5000);
     }
 }
 
