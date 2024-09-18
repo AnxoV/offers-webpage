@@ -1,6 +1,7 @@
 @import "../utils.css";
 @import "../components/image.css";
 @import "../components/form.css";
+@import "../components/text-notification.css";
 
 #login-container {
     display: flex;
@@ -49,4 +50,16 @@
 
 #company-icon {
     width: 30px;
+}
+
+#notifications-container {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50px; right: 50px;
+}
+
+#notifications-container > * {
+    margin: 5px 0;
 }

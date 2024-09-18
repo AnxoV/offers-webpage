@@ -11,15 +11,13 @@ router.get("^/$|/index(.html)?",
     page.load("index.html")
 );
 
-router.get("/logout(.html)?",
-    sessionHandler.inactiveSessionRedirect,
-    logoutController.handleLogout,
-    page.load("index.html")
-);
-
 router.get("/offers(.html)?",
     sessionHandler.inactiveSessionRedirect,
     page.load("offers.html")
+);
+
+router.get("/logout(.html)?",
+    logoutController.handleLogout
 );
 
 module.exports = router;

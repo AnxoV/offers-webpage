@@ -13,6 +13,8 @@
         Change login-form action based on selected user
     -->
     <main>
+        <div id="notifications-container">
+        </div>
         <div id="login-container">
             <div id="user-selection-container">
                 <button class="button selection-button" id="user-selection-button">
@@ -22,17 +24,17 @@
                     <img src="/media/svg/company.svg" alt="user" class="icon selection-icon" id="company-icon">
                 </button>
             </div>
-            <form action="" method="post" class="form" id="login-form">
+            <form action="/auth" method="post" class="form" id="login-form">
                 <div>
                     <label for="email">
                         <h4>Correo electrónico</h4>
-                        <input type="email" name="email" class="input">
+                        <input type="email" name="email" class="input" required>
                     </label>
                 </div>
                 <div>
                     <label for="password">
                         <h4>Contraseña</h4>
-                        <input type="password" name="password" class="input">
+                        <input type="password" name="password" class="input" required>
                     </label>
                 </div>
                 <div>
@@ -41,6 +43,7 @@
             </form>
         </div>
     </main>
-    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/views/index.js"></script>
+    <script type="module" src="/js/components/textNotification.js"></script>
 </body>
 </html>

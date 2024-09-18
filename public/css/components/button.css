@@ -4,8 +4,7 @@
     color: #fff;
     background-color: #044f9b;
 
-    border: 2px solid;
-    border-color: #044f9b;
+    border: 2px solid #044f9b;
     border-radius: 8px;
 }
 
@@ -30,6 +29,12 @@ a.button {
 
 .button.button-hollow:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button-transparent {
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .link {

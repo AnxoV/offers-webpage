@@ -1,12 +1,13 @@
 const {User} = require("../models/User");
 const {sanitizeInput} = require("../utils/validation");
+const page = require("../utils/page");
 
-const handleLogout = async function(request, response, next) {
+const handleLogout = async function(request, response) {
     console.log("[*] logoutController.handleLogout: logging out user");
     const cookies = request.cookies;
     if (!cookies?.jwt) {
         console.log("[^] logoutController.handleLogout: no jwt cookie found");
-        next();
+        page.load("/index.html");
     }
 
     const refreshToken = sanitizeInput(cookies.jwt);
@@ -33,7 +34,7 @@ const handleLogout = async function(request, response, next) {
 
     console.log("[^] logoutController.handleLogout: cookie cleared");
 
-    next();
+    response.redirect("/");
 }
 
 module.exports = { handleLogout };
