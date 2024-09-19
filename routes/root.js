@@ -20,6 +20,11 @@ router.get("/offers(.html)?",
     page.load("offers.html")
 );
 
+router.get("/account(.html)?",
+    sessionHandler.inactiveSessionRedirect,
+    page.load("account.html")
+);
+
 router.get("/logout(.html)?",
     logoutController.handleLogout
 );
