@@ -30,6 +30,10 @@ const StudentSchema = extend(UserSchema, {
         type: String,
         required: true
     },
+    birthdate: {
+        type: Date,
+        required: true
+    },
     password: {
         type: String,
         required: true

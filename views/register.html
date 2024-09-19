@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas web</title>
+
+    <link rel="stylesheet" href="/css/views/register.css">
+</head>
+<body>
+    <div id="notifications-container">
+    </div>
+    <main>
+        <div id="register-container">
+            <h2>
+                Registrarse
+            </h2>
+            <div id="user-selection-container">
+                <button class="button selection-button" id="user-selection-button">
+                    <img src="/media/svg/user.svg" alt="user" class="icon selection-icon">
+                </button>
+                <button class="button button-hollow selection-button" id="company-selection-button">
+                    <img src="/media/svg/company.svg" alt="user" class="icon selection-icon" id="company-icon">
+                </button>
+            </div>
+            <form action="/register/student" method="post" class="form register-form" id="register-student-form">
+                <div>
+                    <label for="name">
+                        <h4>Nombre</h4>
+                        <input type="text" name="name" required>
+                    </label>
+                    <label for="surname">
+                        <h4>Apellidos</h4>
+                        <input type="text" name="surname" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="email">
+                        <h4>Correo electrónico</h4>
+                        <input type="email" name="email" required>
+                    </label>
+                    <label for="birthdate">
+                        <h4>Fecha de nacimiento</h4>
+                        <input type="date" name="birthdate" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <h4>Contraseña</h4>
+                        <input type="password" name="password" required>
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="button">Registrarse</button>
+                </div>
+                <small><a href="/login.html" class="link" id="login-link">Iniciar sesión</a></small>
+            </form>
+            <form action="/register/company" method="post" class="form register-form hidden" id="register-company-form">
+                <div>
+                    <label for="name">
+                        <h4>Nombre</h4>
+                        <input type="text" name="name" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="email">
+                        <h4>Correo electrónico</h4>
+                        <input type="email" name="email" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <h4>Contraseña</h4>
+                        <input type="password" name="password" required>
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="button">Registrarse</button>
+                </div>
+                <small><a href="/login.html" class="link" id="login-link">Iniciar sesión</a></small>
+            </form>
+        </div>
+    </main>
+    <script type="module" src="/js/views/register.js"></script>
+    <script type="module" src="/js/components/textNotification.js"></script>
+</body>
+</html>

@@ -46,12 +46,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", require("./routes/root"));
-app.use("/register", require("./routes/register"));
-app.use("/login", require("./routes/login"));
-
+// API routes
 app.use("/request", require("./routes/api/request"));
 app.use("/auth", require("./routes/api/auth"));
 app.use("/emailauth", require("./routes/api/emailauth"));
+app.use("/register", require("./routes/api/register"));
 app.use("/refresh", require("./routes/api/refresh"));
 
 app.use(verifyJWT);

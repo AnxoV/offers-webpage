@@ -6,9 +6,13 @@ const sessionHandler = require("../middleware/sessionHandler");
 
 const logoutController = require("../controllers/logoutController");
 
-router.get("^/$|/index(.html)?",
+router.get("^/$|/index(.html)?|/login(.html)?",
     sessionHandler.activeSessionRedirect,
     page.load("index.html")
+);
+
+router.get("/register(.html)?",
+    page.load("register.html")
 );
 
 router.get("/offers(.html)?",

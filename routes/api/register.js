@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const registerController = require("../controllers/registerController");
+const registerController = require("../../controllers/registerController");
 
-const ROLES_LIST = require("../config/roles_list");
-const verifyRoles = require("../middleware/verifyRoles");
+const ROLES_LIST = require("../../config/roles_list");
+const verifyRoles = require("../../middleware/verifyRoles");
 
 router.post("/student", registerController.handleNewStudent);
 router.post("/company", registerController.handleNewCompany);

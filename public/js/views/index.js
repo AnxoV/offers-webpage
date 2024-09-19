@@ -20,7 +20,7 @@ const login_form = $("#login-form");
 const user_selection_button = $("#user-selection-button");
 user_selection_button.addEventListener("click", function(event) {
     password_label.classList.remove("hidden");
-    password_input.setAttribute("required");
+    password_input.setAttribute("required", "");
     login_form.action = "/auth"
 });
 

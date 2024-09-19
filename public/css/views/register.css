@@ -4,7 +4,7 @@
 @import "../components/form.css";
 @import "../components/text-notification.css";
 
-#login-container {
+#register-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,12 +14,24 @@
     padding: 20px;
 }
 
-#login-container > * {
+#register-container > * {
     margin: 10px 0;
 }
 
-#login-form {
-    max-width: 20%;
+#register-student-form {
+    max-width: 23%;
+}
+
+#register-company-form {
+    max-width: 25%;
+}
+
+#register-student-form label[for='name'] {
+    width: 60%;
+}
+
+#register-student-form label[for='birthdate'] {
+    width: 50%;
 }
 
 #user-selection-container {
@@ -65,6 +77,6 @@
     margin: 5px 0;
 }
 
-#register-link {
+#login-link {
     font-size: 0.8em;
 }

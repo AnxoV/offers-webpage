@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ofertas web</title>
 
-    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/views/index.css">
 </head>
 <body>
-    <!--
-        Change login-form action based on selected user
-    -->
+    <div id="notifications-container">
+    </div>
     <main>
-        <div id="notifications-container">
-        </div>
         <div id="login-container">
+            <h2>
+                Iniciar sesión
+            </h2>
             <div id="user-selection-container">
                 <button class="button selection-button" id="user-selection-button">
                     <img src="/media/svg/user.svg" alt="user" class="icon selection-icon">
@@ -28,18 +27,19 @@
                 <div>
                     <label for="email">
                         <h4>Correo electrónico</h4>
-                        <input type="email" name="email" class="input" required>
+                        <input type="email" name="email" required>
                     </label>
                 </div>
                 <div>
                     <label for="password">
                         <h4>Contraseña</h4>
-                        <input type="password" name="password" class="input" required>
+                        <input type="password" name="password" required>
                     </label>
                 </div>
                 <div>
                     <button type="submit" class="button">Inciar sesión</button>
                 </div>
+                <small><a href="/register.html" class="link" id="register-link">Registrarse</a></small>
             </form>
         </div>
     </main>

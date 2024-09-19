@@ -10,6 +10,10 @@
 }
 
 .form > * {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
     width: 100%;
     height: fit-content;
 
@@ -17,11 +21,20 @@
     padding: 2px;
 }
 
+.form label {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
 .form label > * {
     margin: 2px 0;
 }
 
 .form input {
+    margin-top: auto;
+
     width: 100%;
 
     padding: 5px 10px;
@@ -31,6 +44,6 @@
 }
 
 .form .button[type="submit"],
-.form .input[type="submit"] {
+.form input[type="submit"] {
     width: 100%;
 }
