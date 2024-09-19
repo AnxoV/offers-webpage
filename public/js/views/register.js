@@ -45,7 +45,7 @@ register_forms.forEach(function(form) {
     
         if (!response.ok) {
             const notification = new TextNotification(
-                "Usuario o contraseña incorrectos",
+                "Error al registrar el usuario",
                 "warning"
             );
             notifications_container.appendChild(notification);

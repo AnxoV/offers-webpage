@@ -21,14 +21,14 @@ const handleNewStudent = async function(request, response) {
         "password"
     ];
 
-    requiredFields.forEach(function(field) {
+    for (field in requiredFields) {
         if (!request.body[field]) {
             console.log("[^] registerController.handleNewStudent: missing required values");
             return response.status(400).json({
                 "message": "Missing required values"
             });
         }
-    });
+    }
 
     const duplicate =  await User.findOne({ email }).exec();
 
